@@ -13,7 +13,7 @@
             useElement[i].setAttribute('xlink:href', useAttr)
         }
         var file = 'img/svg/symbol/sprite.svg', // путь к файлу спрайта на сервере
-            revision = 7;            // версия спрайта
+            revision = 8;            // версия спрайта
         if (!document.createElementNS || !document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect) return true;
         var isLocalStorage = 'localStorage' in window && window['localStorage'] !== null,
             request,

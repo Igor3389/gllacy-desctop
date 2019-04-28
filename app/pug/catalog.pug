@@ -1,152 +1,306 @@
 extends layouts/page
 include mixins/mixins
 block variables
-    - var title= 'Sedona | Магазин'
+    - var title= 'Gllacy | Магазин'
     - var mainPage= false
     - var catalogPage= true
-    - var activNavItem= 'ГОСТИНИЦЫ'
+    - var cartDone= true
 block pageContent
-    main.main(class=mainPage ? 'main-page' : 'inner-page')
-        h1.visually-hidden Поиск Гостиниц
+    main.main(class=mainPage ? 'main-page' : 'inner-page container')
+        ul.inner-page__nav-list
+            li.inner-page__nav-item
+                a.inner-page__nav-link.link(href='#') Главная
+            li.inner-page__nav-item
+                a.inner-page__nav-link.link(href='#') Каталог
+            li.inner-page__nav-item
+                a.inner-page__nav-link Сливочное
+        h1.main__title Сливочное мороженое
         section.form
             h2.visually-hidden Форма поиска
-            form.form__filter(action='#', method='post')
+            form.form__filter(action='#', method='post', id='data')
+                fieldset.form__select
+                    legend.form__title Сортировка:
+                    select.form__selector(name='num', form='data')
+                        option(value='1') по популярности
+                        option(value='2') сначала недорогие
+                        option(value='3') сначала дорогие
+                        option(value='4') по жирности
+                fieldset.range
+                    legend.visually-hidden Ценовой диапазон:
+                    p.range__price
+                        | Цена:&ensp;
+                        span.range__price-min 100
+                        | &ensp;руб. –&ensp;
+                        span.range__price-max 500
+                        | &ensp;руб.
+                    .range__box
+                        .range__line
+                            .range__scale
+                            span.range__indicator.range__indicator--left
+                            span.range__indicator.range__indicator--right
+                fieldset.form__section.choice
+                    legend.form__title Жирность:
+                    ul.choice__list
+                        li.choice__item
+                            label.radio
+                                input.radio__field(type='radio', name='bluetooth', checked)
+                                span.radio__indicator
+                                span.radio__text 0%
+                        li.choice__item
+                            label.radio
+                                input.radio__field(type='radio', name='bluetooth')
+                                span.radio__indicator
+                                span.radio__text до 10%
+                        li.choice__item
+                            label.radio
+                                input.radio__field(type='radio', name='bluetooth', checked)
+                                span.radio__indicator
+                                span.radio__text до 30%
+                        li.choice__item
+                            label.radio
+                                input.radio__field(type='radio', name='bluetooth')
+                                span.radio__indicator
+                                span.radio__text выше 30%
                 fieldset.form__section.types
-                    legend.form__title.types__title ИНФРАСТРУКТУРА:
+                    legend.form__title Наполнители:
                     ul.types__list
                         li.types__item
                             label.checkbox
-                                input.checkbox__field(type='checkbox', name='feature-1', checked)
+                                input.checkbox__field(type='checkbox', name='type-1', checked)
                                 span.checkbox__indicator
-                                span.checkbox__text БАССЕЙН
+                                span.checkbox__text шоколадные
                         li.types__item
                             label.checkbox
-                                input.checkbox__field(type='checkbox', name='feature-2')
+                                input.checkbox__field(type='checkbox', name='type-2', checked)
                                 span.checkbox__indicator
-                                span.checkbox__text ПАРКОВКА
+                                span.checkbox__text сахарные присыпки
                         li.types__item
                             label.checkbox
-                                input.checkbox__field(type='checkbox', name='feature-3')
+                                input.checkbox__field(type='checkbox', name='type-3')
                                 span.checkbox__indicator
-                                span.checkbox__text Wi-Fi
-                fieldset.form__section.types
-                    legend.form__title.types__title Тип жилья:
-                    ul.types__list
+                                span.checkbox__text фрукты
                         li.types__item
                             label.checkbox
-                                input.checkbox__field(type='checkbox', name='homeType-1', checked)
+                                input.checkbox__field(type='checkbox', name='type-3')
                                 span.checkbox__indicator
-                                span.checkbox__text Гостиница
+                                span.checkbox__text сиропы
                         li.types__item
                             label.checkbox
-                                input.checkbox__field(type='checkbox', name='homeType-2')
+                                input.checkbox__field(type='checkbox', name='type-3')
                                 span.checkbox__indicator
-                                span.checkbox__text МОТЕЛЬ
-                        li.types__item
-                            label.checkbox
-                                input.checkbox__field(type='checkbox', name='homeType-3')
-                                span.checkbox__indicator
-                                span.checkbox__text АПАРТАМЕНТЫ
-                .form__right
-                    fieldset.form__section.range
-                        legend.form__title.range__title Стоимость в сутки (Р):
-                        .range__top
-                            label.range__label
-                                span.range__text От
-                                input.range__field(type='text', name='minRange', value='0')
-                            label.range__label
-                                span.range__text До
-                                input.range__field(type='text', name='maxRange', value='3000')
-                        .range__box
-                            .range__line
-                                .range__scale
-                                span.range__indicator.range__indicator--left
-                                span.range__indicator.range__indicator--right
-                    button.form__button(type='submit') Показать
-        section.sort
-            p.sort__result НАЙДЕНО: 3
-            h2.sort__title СОРТИРОВКА:
-            .sort__list
-                a.sort__item.sort__item--active По цене
-                a.sort__item(href='#') По типу
-                a.sort__item(href='#') ПО РЕЙТИНГУ
-            .sort__rank
-                a.sort__rank-item--down.sort__rank-item--active(aria-label='По убыванию')
-                a.sort__rank-item--up(href='#', aria-label='По возрастанию')
-        ul.hotels
-            li.hotels__item
-                +img({
-                    class: 'hotels__image',
-                    src: 'img/hotel-1.jpg',
-                    path: 'img/',
-                    name: 'hotel-1',
-                    alt: 'Фото отеля',
-                    retina: ['2x', '3x']
-                })
-                .hotels__center
-                    h2.hotels__title Amara Resort & Spa
-                    .hotels__block-center
-                        span.hotels__type Гостиница
-                        span.hotels__price ОТ 4000 Р.
-                    .hotels__block-bottom
-                        a.hotels__about.button.button--small(href='#') ПОДРОБНЕЕ
-                        a.hotels__book-hotel.button.button--blue.button--small(href='#') ЗАБРОНИРОВАТЬ
-                .hotels__right
-                    p.hotels__stars
-                        span.visually-hidden 4-х звёздочный отель
-                        +icon('hotels__star-icon', 'star', 18, 17, {ariaHidden: 'true', role: 'presentation'})
-                        +icon('hotels__star-icon', 'star', 18, 17, {ariaHidden: 'true', role: 'presentation'})
-                        +icon('hotels__star-icon', 'star', 18, 17, {ariaHidden: 'true', role: 'presentation'})
-                        +icon('hotels__star-icon', 'star', 18, 17, {ariaHidden: 'true', role: 'presentation'})
-                    p.hotels__raiting Рейтинг: 8,5
-            li.hotels__item
-                +img({
-                    class: 'hotels__image',
-                    src: 'img/hotel-2.jpg',
-                    path: 'img/',
-                    name: 'hotel-2',
-                    alt: 'Фото отеля',
-                    retina: ['2x', '3x']
-                })
-                .hotels__center
-                    h2.hotels__title Desert Quail Inn
-                    .hotels__block-center
-                        span.hotels__type Мотель
-                        span.hotels__price ОТ 3000 Р.
-                    .hotels__block-bottom
-                        a.hotels__about.button.button--small(href='#') ПОДРОБНЕЕ
-                        a.hotels__book-hotel.button.button--blue.button--small(href='#') ЗАБРОНИРОВАТЬ
-                .hotels__right
-                    p.hotels__stars
-                        span.visually-hidden 3-х звёздочный отель
-                        +icon('hotels__star-icon', 'star', 18, 17, {ariaHidden: 'true', role: 'presentation'})
-                        +icon('hotels__star-icon', 'star', 18, 17, {ariaHidden: 'true', role: 'presentation'})
-                        +icon('hotels__star-icon', 'star', 18, 17, {ariaHidden: 'true', role: 'presentation'})
-                    p.hotels__raiting Рейтинг: 8,9
-            li.hotels__item
-                +img({
-                    class: 'hotels__image',
-                    src: 'img/hotel-3.jpg',
-                    path: 'img/',
-                    name: 'hotel-3',
-                    alt: 'Фото отеля',
-                    retina: ['2x', '3x']
-                })
-                .hotels__center
-                    h2.hotels__title Villas at Poco Diablo
-                    .hotels__block-center
-                        span.hotels__type Апартаменты
-                        span.hotels__price ОТ 2000 Р.
-                    .hotels__block-bottom
-                        a.hotels__about.button.button--small(href='#') ПОДРОБНЕЕ
-                        a.hotels__book-hotel.button.button--blue.button--small(href='#') ЗАБРОНИРОВАТЬ
-                .hotels__right
-                    p.hotels__stars
-                        span.visually-hidden 2-х звёздочный отель
-                        +icon('hotels__star-icon', 'star', 18, 17, {ariaHidden: 'true', role: 'presentation'})
-                        +icon('hotels__star-icon', 'star', 18, 17, {ariaHidden: 'true', role: 'presentation'})
-                    p.hotels__raiting Рейтинг: 9,2
-
+                                span.checkbox__text джемы
+                button.form__button(type='submit') Применить
+        section.products
+            h2.visually-hidden Сливочное мороженое
+            ul.products__list
+                li.products__item.product
+                    +img({
+                        class: 'product__image',
+                        src: 'img/product-1.png',
+                        path: 'img/',
+                        name: 'product-1',
+                        format: '.png',
+                        alt: 'Сливочное с апельсиновым джемом и цитрусовой стружкой',
+                        retina: ['2x', '3x']
+                    })
+                    p.product__price
+                        | 310 &#8381;
+                        span.product__weight /кг
+                    a.product__link.link(href='#') Сливочное с апельсиновым джемом и цитрусовой стружкой
+                    .product__overlay
+                        a.product__button.button(href='#') Быстрый просмотр
+                li.products__item.product
+                    +img({
+                        class: 'product__image',
+                        src: 'img/product-2.png',
+                        path: 'img/',
+                        name: 'product-2',
+                        format: '.png',
+                        alt: 'Сливочно-кофейное с кусочками шоколада',
+                        retina: ['2x', '3x']
+                    })
+                    p.product__price
+                        | 380 &#8381;
+                        span.product__weight /кг
+                    a.product__link.link(href='#') Сливочно-кофейное с кусочками шоколада
+                    .product__overlay
+                        a.product__button.button(href='#') Быстрый просмотр
+                li.products__item.product
+                    +img({
+                        class: 'product__image',
+                        src: 'img/product-3.png',
+                        path: 'img/',
+                        name: 'product-3',
+                        format: '.png',
+                        alt: 'Сливочно-клубничное с присыпкой из белого шоколада',
+                        retina: ['2x', '3x']
+                    })
+                    p.product__price
+                        | 355 &#8381;
+                        span.product__weight /кг
+                    a.product__link.link(href='#') Сливочно-клубничное с присыпкой из белого шоколада
+                    .product__overlay
+                        a.product__button.button(href='#') Быстрый просмотр
+                li.products__item.product
+                    +img({
+                        class: 'product__image',
+                        src: 'img/product-4.png',
+                        path: 'img/',
+                        name: 'product-4',
+                        format: '.png',
+                        alt: 'Сливочное крем-брюле с карамельной подливкой',
+                        retina: ['2x', '3x']
+                    })
+                    p.product__price
+                        | 415 &#8381;
+                        span.product__weight /кг
+                    a.product__link.link(href='#') Сливочное крем-брюле с карамельной подливкой
+                    .product__overlay
+                        a.product__button.button(href='#') Быстрый просмотр
+                li.products__item.product
+                    +img({
+                        class: 'product__image',
+                        src: 'img/product-5.png',
+                        path: 'img/',
+                        name: 'product-5',
+                        format: '.png',
+                        alt: 'Сливочное с брусничным джемом',
+                        retina: ['2x', '3x']
+                    })
+                    p.product__price
+                        | 325 &#8381;
+                        span.product__weight /кг
+                    a.product__link.link(href='#') Сливочное с брусничным джемом
+                    .product__overlay
+                        a.product__button.button(href='#') Быстрый просмотр
+                li.products__item.product
+                    +img({
+                        class: 'product__image',
+                        src: 'img/product-6.png',
+                        path: 'img/',
+                        name: 'product-6',
+                        format: '.png',
+                        alt: 'Сливочно-черничное с цельными ягодами черники',
+                        retina: ['2x', '3x']
+                    })
+                    p.product__price
+                        | 410 &#8381;
+                        span.product__weight /кг
+                    a.product__link.link(href='#') Сливочно-черничное с цельными ягодами черники
+                    .product__overlay
+                        a.product__button.button(href='#') Быстрый просмотр
+                li.products__item.product
+                    +img({
+                        class: 'product__image',
+                        src: 'img/product-7.png',
+                        path: 'img/',
+                        name: 'product-7',
+                        format: '.png',
+                        alt: 'Сливочно-лимонное с карамельной присыпкой',
+                        retina: ['2x', '3x']
+                    })
+                    p.product__price
+                        | 375 &#8381;
+                        span.product__weight /кг
+                    a.product__link.link(href='#') Сливочно-лимонное с карамельной присыпкой
+                    .product__overlay
+                        a.product__button.button(href='#') Быстрый просмотр
+                li.products__item.product
+                    +img({
+                        class: 'product__image',
+                        src: 'img/product-8.png',
+                        path: 'img/',
+                        name: 'product-8',
+                        format: '.png',
+                        alt: 'Сливочное с шоколадной стружкой',
+                        retina: ['2x', '3x']
+                    })
+                    p.product__price
+                        | 320 &#8381;
+                        span.product__weight /кг
+                    a.product__link.link(href='#') Сливочное с шоколадной стружкой
+                    .product__overlay
+                        a.product__button.button(href='#') Быстрый просмотр
+                li.products__item.product
+                    +img({
+                        class: 'product__image',
+                        src: 'img/product-9.png',
+                        path: 'img/',
+                        name: 'product-9',
+                        format: '.png',
+                        alt: 'Сливочно-ванильное с кусочками шоколада',
+                        retina: ['2x', '3x']
+                    })
+                    p.product__price
+                        | 440 &#8381;
+                        span.product__weight /кг
+                    a.product__link.link(href='#') Сливочно-ванильное с кусочками шоколада
+                    .product__overlay
+                        a.product__button.button(href='#') Быстрый просмотр
+                li.products__item.product
+                    +img({
+                        class: 'product__image',
+                        src: 'img/product-10.png',
+                        path: 'img/',
+                        name: 'product-10',
+                        format: '.png',
+                        alt: 'Сливочноe с ментоловым сиропом',
+                        retina: ['2x', '3x']
+                    })
+                    p.product__price
+                        | 435 &#8381;
+                        span.product__weight /кг
+                    a.product__link.link(href='#') Сливочноe с ментоловым сиропом
+                    .product__overlay
+                        a.product__button.button(href='#') Быстрый просмотр
+                li.products__item.product
+                    +img({
+                        class: 'product__image',
+                        src: 'img/product-11.png',
+                        path: 'img/',
+                        name: 'product-11',
+                        format: '.png',
+                        alt: 'Сливочное с кусочками черного шоколада',
+                        retina: ['2x', '3x']
+                    })
+                    p.product__price
+                        | 355 &#8381;
+                        span.product__weight /кг
+                    a.product__link.link(href='#') Сливочное с кусочками черного шоколада
+                    .product__overlay
+                        a.product__button.button(href='#') Быстрый просмотр
+                li.products__item.product
+                    +img({
+                        class: 'product__image',
+                        src: 'img/product-12.png',
+                        path: 'img/',
+                        name: 'product-12',
+                        format: '.png',
+                        alt: 'Сливочное с мятным сиропом',
+                        retina: ['2x', '3x']
+                    })
+                    p.product__price
+                        | 420 &#8381;
+                        span.product__weight /кг
+                    a.product__link.link(href='#') Сливочное с мятным сиропом
+                    .product__overlay
+                        a.product__button.button(href='#') Быстрый просмотр
+        .pages
+            a.pages__button.pages__button--back.pages__button--disabled(aria-label='Предыдущая страница')
+                +icon('pages__icon--back pages__icon--disabled', 'right-small', 8, 12, {role: 'img'})
+            ul.pages__list
+                li.pages__item
+                    a.pages__link.pages__link--active 1
+                li.pages__item
+                    a.pages__link(href='#') 2
+                li.pages__item
+                    a.pages__link(href='#') 3
+                li.pages__item
+                    a.pages__link(href='#') 4
+                li.pages__item
+                    a.pages__link(href='#') 5
+            a.pages__button(href='#', aria-label='Следующая страница')
+                +icon('pages__icon', 'right-small', 8, 12, {role: 'img'})
 
 
 

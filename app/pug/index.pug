@@ -1,139 +1,166 @@
 extends layouts/page
 include mixins/mixins
 block variables
-    - var title= 'Sedona | Главная'
+    - var title= 'Gllacy | Главная'
     - var mainPage= true
-    - var activNavItem= ''
+    - var cartDone= false
 block pageContent
     main.main(class=mainPage ? 'main-page' : 'inner-page')
-        header.main__header
-            h1.visually-hidden Седона
-            +img({
-                class: 'main__header-image-welcome',
-                src: 'img/pngIcons/welcome.png',
-                path: 'img/pngIcons/',
-                name: 'welcome',
-                format: '.png',
-                alt: 'Добро пожаловать',
-                retina: ['2x', '3x']
-            })
-            +img({
-                class: 'main__header-image-georgeous',
-                src: 'img/pngIcons/gorgeous.png',
-                path: 'img/pngIcons/',
-                name: 'gorgeous',
-                format: '.png',
-                alt: 'Джорджия',
-                retina: ['2x', '3x']
-            })
-            +img({
-                class: 'main__header-image-sedona',
-                src: 'img/pngIcons/sedona.png',
-                path: 'img/pngIcons/',
-                name: 'sedona',
-                format: '.png',
-                alt: 'Седона',
-                retina: ['2x', '3x']
-            })
-            +img({
-                class: 'main__header-image-because',
-                src: 'img/pngIcons/Because.png',
-                path: 'img/pngIcons/',
-                name: 'Because',
-                format: '.png',
-                alt: 'Потому что здесь есть гранд каньён',
-                retina: ['2x', '3x']
-            })
-            p.main__header-text
-                b.main__header-slogan СЕДОНА — небольшой городок в АРИЗОНЕ,  зАСЛУЖИвающий большего!
-        section.features
-            h2.visually-hidden Преимущества седоны
-            p.features__text Рассмотрим 5 причин, по которым Седона круче, чем гранд каньон!
-            ol.features__large-list
-                li.features__large-item
-                    .features__item.features__item--blue
-                        h3.features__list-title НАСТОЯЩИЙ ГОРОДОК
-                        p.features__list-text
-                            span.features__list-number — №1 —
-                            | СЕДОНА — НЕ АТТРАКЦИОН ДЛЯ ТУРИСТОВ, ТАМ ТЕЧЕТ СВОЯ ЖИЗНЬ
-                    +img({
-                        class: 'features__large-image',
-                        src: 'img/shop.jpg',
-                        path: 'img/',
-                        name: 'shop',
-                        alt: 'Магазин',
-                        retina: ['2x', '3x']
-                    })
-            ul.features__sublist
-                li.features__subitem
-                    +icon('features__subicon', 'house', 75, 72, {ariaHidden: 'true', role: 'presentation'})
-                    h4.features__subtitle Жилье
-                    p.features__subtext Рекомендуем пожить в настоящем мотеле, все как в кино!
-                li.features__subitem
-                    +icon('features__subicon', 'hamburger', 74, 70, {ariaHidden: 'true', role: 'presentation'})
-                    h4.features__subtitle ЕДА
-                    p.features__subtext Всегда заказывайте ФИРМЕННЫЙ БУРГЕР, Вы НЕ разочаруетесь!
-                li.features__subitem
-                    +icon('features__subicon', 'present', 64, 76, {ariaHidden: 'true', role: 'presentation'})
-                    h4.features__subtitle СУВЕНИРЫ
-                    p.features__subtext Не только китайского, но и местного производства!
-            ol.features__large-list(start='2')
-                li.features__large-item
+        h1.visually-hidden Gllacy
+        .container
+            section.slider
+                h2.visually-hidden Заказать пару пломбиров
+                ul.slider__list
+                    li.slider__item
                         +img({
-                            class: 'features__large-image',
-                            src: 'img/canyon.jpg',
+                            class: 'slider__image',
+                            src: 'img/slider-1.png',
                             path: 'img/',
-                            name: 'canyon',
-                            alt: 'Каньён',
+                            name: 'slider-1',
+                            format: '.png',
+                            alt: 'Крем-брюле и пломбир с малиновым джемом',
                             retina: ['2x', '3x']
                         })
-                        .features__item.features__item--blue
-                            h3.features__list-title ТАМ ЕСТЬ Мост дьявола
-                            p.features__list-text
-                                span.features__list-number — №2 —
-                                | Да, по нему можно пройти! Если конечно вы осмелитесь
-            ol.features__list(start='3')
-                li.features__item
-                    h3.features__list-title НЕБОЛЬШАЯ ПЛОЩАДЬ
-                    p.features__list-text
-                        span.features__list-number — №3 —
-                        | ВСЕ достопримечательности находятся очень близко
-                li.features__item
-                    h3.features__list-title КРАСИВАЯ ДОРОГА
-                    p.features__list-text
-                        span.features__list-number — №4 —
-                        | ЕХАТЬ В СЕДОНУ ИЗ ЛАС-ВЕГАСА совсем НЕ СКУЧНО!
-                li.features__item
-                    h3.features__list-title МАЛО ТУРИСТОВ
-                    p.features__list-text
-                        span.features__list-number — №5 —
-                        | Большинство едет в гранд каньон и толпится там
+                        p.slider__title Крем-брюле и пломбир с малиновым джемом
+                        a.slider__button.button.button--shadow.button--large(href='#') Давайте оба!
+                    li.slider__item
+                        +img({
+                            class: 'slider__image',
+                            src: 'img/slider-2.png',
+                            path: 'img/',
+                            name: 'slider-2',
+                            format: '.png',
+                            alt: 'Шоколадный пломбир и лимонный сорбет ',
+                            retina: ['2x', '3x']
+                        })
+                        p.slider__title Шоколадный пломбир и лимонный сорбет
+                        a.slider__button.button.button--shadow.button--large(href='#') Давайте оба!
+                    li.slider__item
+                        +img({
+                            class: 'slider__image',
+                            src: 'img/slider-3.png',
+                            path: 'img/',
+                            name: 'slider-3',
+                            format: '.png',
+                            alt: 'Пломбир с помадкой и клубничный щербет',
+                            retina: ['2x', '3x']
+                        })
+                        p.slider__title Пломбир с помадкой и клубничный щербет
+                        a.slider__button.button.button--shadow.button--large(href='#') Давайте оба!
+            section.features
+                h2.visually-hidden Акции
+                ul.features__list
+                    li.features__item.features__item--berry
+                        h3.features__title Малинка даром!
+                        p.features__text При покупке 2 кг любого фруктового мороженого, добавим в ваш заказ банку малинового варенья бесплатно.
+                        a.features__button.button(href='#') Хочу варенье!
+                    li.features__item.features__item--shockled
+                        h3.features__title Шоколадки даром!
+                        p.features__text При покупке 2 кг пломбира, добавим в ваш заказ упаковку вкуснейшей шоколадной присыпки совершенно бесплатно.
+                        a.features__button.features__shockled-button.button(href='#') Хочу шоколадки!
+            section.hits
+                h2.visually-hidden Хиты продаж
+                ul.hits__list
+                    li.hits__item.product
+                        +img({
+                            class: 'product__image',
+                            src: 'img/product-1.png',
+                            path: 'img/',
+                            name: 'product-1',
+                            format: '.png',
+                            alt: 'Сливочное с апельсиновым джемом и цитрусовой стружкой',
+                            retina: ['2x', '3x']
+                        })
+                        p.product__price
+                            | 310 &#8381;
+                            span.product__weight /кг
+                        a.product__link.link(href='#') Сливочное с апельсиновым джемом и цитрусовой стружкой
+                        .product__overlay
+                            a.product__button.button(href='#') Быстрый просмотр
+                        span.product__hit-flag
+                    li.hits__item.product
+                        +img({
+                            class: 'product__image',
+                            src: 'img/product-2.png',
+                            path: 'img/',
+                            name: 'product-2',
+                            format: '.png',
+                            alt: 'Сливочно-кофейное с кусочками шоколада',
+                            retina: ['2x', '3x']
+                        })
+                        p.product__price
+                            | 380 &#8381;
+                            span.product__weight /кг
+                        a.product__link.link(href='#') Сливочно-кофейное с кусочками шоколада
+                        .product__overlay
+                            a.product__button.button(href='#') Быстрый просмотр
+                        span.product__hit-flag
+                    li.hits__item.product
+                        +img({
+                            class: 'product__image',
+                            src: 'img/product-3.png',
+                            path: 'img/',
+                            name: 'product-3',
+                            format: '.png',
+                            alt: 'Сливочно-клубничное с присыпкой из белого шоколада',
+                            retina: ['2x', '3x']
+                        })
+                        p.product__price
+                            | 355 &#8381;
+                            span.product__weight /кг
+                        a.product__link.link(href='#') Сливочно-клубничное с присыпкой из белого шоколада
+                        .product__overlay
+                            a.product__button.button(href='#') Быстрый просмотр
+                        span.product__hit-flag
+                    li.hits__item.product
+                        +img({
+                            class: 'product__image',
+                            src: 'img/product-4.png',
+                            path: 'img/',
+                            name: 'product-4',
+                            format: '.png',
+                            alt: 'Сливочное крем-брюле с карамельной подливкой',
+                            retina: ['2x', '3x']
+                        })
+                        p.product__price
+                            | 415 &#8381;
+                            span.product__weight /кг
+                        a.product__link.link(href='#') Сливочное крем-брюле с карамельной подливкой
+                        .product__overlay
+                            a.product__button.button(href='#') Быстрый просмотр
+                        span.product__hit-flag
+            section.description
+                h2.visually-hidden Описание особенностей Gllacy
+                p.description__slogan Магазин Глэйси — это онлайн- и офлайн-магазин по продаже мороженого собственного производства на развес
+                ul.description__list
+                    li.description__item.description__item--icecream Все наше мороженое изготавливается на собственном производстве, с использованием современного оборудования и проверенных временем технологий.
+                    li.description__item.description__item--bool Закупка ингредиентов  производится только у проверенных фермерских хозяйств и компаний, с которыми нас связывает долговременное сотрудничество.
+                    li.description__item.description__item--leaf Для приготовления мороженого используются настоящие сливки и молоко высочайшего качества. Все дополнительные ингредиенты и добавки произведены из натурального, экологически чистого сырья.
+                    li.description__item.description__item--termometer Доставка нашего мороженого до заказчиков осуществляется в специальном термопаке, который не дает мороженому растаять в пути и позволяет сохранить превосходный вкус.
+            .main__bottom
+                article.blog
+                    h1.blog__title Новое в нашем блоге
+                    a.blog__link(href='#') 10 способов сервировки фруктовых щербетов к столу
+                section.mail
+                    h2.visually-hidden Оформить подписку
+                    .mail__wrapper
+                        p.mail__text Подпишитесь на нашу сладкую рассылку и будете всегда в курсе всего самого вкусного, что у нас происходит. Обещаем не спамить и не слать всякой ненужной ерунды. Честно =)
+                        form.mail__form
+                            input.mail__field.field(type='text', name='mail', placeholder='Электронная почта')
+                            button.mail__button.button(type='submit') Отправить
         section.feedback
-            h2.visually-hidden Обратная связь
-            b.feedback__slogan ЗАИНТЕРЕСОВАЛИСЬ?
-            p.feedback__text Укажите предполагаемые даты поездки, и мы покажем вам лучшие предложения гостиниц в седоне
-            .feedback__block
-                button.feedback__button.button(type='button') ПОИСК ГОСТИНИЦЫ В седоне
-                form.feedback__form(action='#', method='post')
-                    .feedback__date-label
-                        span.feedback__date-text Дата заезда:
-                        input.feedback__date-field(placeholder='24 Апреля 2017')
-                        button.feedback__date-button(type='button', name='dayStart')
-                            +icon('feedback__date-icon', 'calendar', 21, 22, {ariaHidden: 'true', role: 'presentation'})
-                    .feedback__date-label
-                        span.feedback__date-text Дата Выезда:
-                        input.feedback__date-field(placeholder='4 июля 2017')
-                        button.feedback__date-button(type='button', name='dayFinish')
-                            +icon('feedback__date-icon', 'calendar', 21, 22, {ariaHidden: 'true', role: 'presentation'})
-                    .feedback__form-bottom
-                        .feedback__humans-label
-                            span.feedback__humans-text Взрослые:
-                            button.feedback__humans-button(type='button', name='manDiff') -
-                            input.feedback__humans-field(value='1', name='man')
-                            button.feedback__humans-button(type='button', name='manSum') +
-                        .feedback__humans-label
-                            span.feedback__humans-text Дети:
-                            button.feedback__humans-button(type='button', name='childDiff') -
-                            input.feedback__humans-field(value='0', name='child')
-                            button.feedback__humans-button(type='button', name='childSum') +
-                    button.feedback__form-button.button.button--blue(type='submit') Найти
+            .container
+                h2.visually-hidden Как с нами связаться
+                .feedback__block
+                    p.feedback__text
+                        | Адрес главного офиса
+                        br
+                        | и офлайн-магазина:
+                    p.feedback__address
+                        | ул. Большая Конюшенная
+                        br
+                        | 19/8, Санкт-Петербург
+                    p.feedback__text Для заказов по телефону:
+                    p.feedback__phone 8 812 450-25-25
+                    p.feedback__text (с 10 до 20 ежедневно)
+                    a.feedback__button.button(href='#') Форма обратной связи

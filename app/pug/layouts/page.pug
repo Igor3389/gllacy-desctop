@@ -2,7 +2,7 @@ block variables
 doctype html
 html(lang='ru')
     include ../modules/head.pug
-    body(class=mainPage ? 'page container' : 'page-inner container')
+    body(class=mainPage ? 'page' : 'page-inner')
         include ../modules/header.pug
 
         block pageContent

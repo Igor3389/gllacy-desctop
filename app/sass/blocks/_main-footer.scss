@@ -1,37 +1,55 @@
 .main-footer {
-  padding-top: 473px;
-  background-image: url("../img/background/background-map.jpg");
-  background-repeat: no-repeat;
+  display: flex;
+  padding-top: 35px;
+  padding-bottom: 25px;
+  @include text(13, 18);
 
-  &__bottom {
+  &__list {
     display: flex;
-    align-items: center;
-    padding: 36px 101px 36px 133px;
-
-    background-color: rgba(255, 255, 255, 0.9);
+    flex-wrap: wrap;
+    width: 338px;
+    margin-left: auto;
+    margin-top: -2px;
+    margin-right: 225px;
   }
 
-  &__link {
-    margin-right: 29px;
-    font-weight: 700;
-    font-size: 21px;
-  }
+  &__item {
+    width: 114px;
+    margin-right: 28px;
+    margin-bottom: 5px;
+    padding-left: 27px;
+    white-space: nowrap;
 
-  &__author-link {
-    display: flex;
-    align-items: center;
-    width: 197px;
-
-    &:hover  .main-footer__author-icon {
-      fill: $blue-text;
+    &:nth-child(2n) {
+      margin-right: 0;
     }
 
-    &:active  .main-footer__author-icon {
-      fill: $brown-active;
+    &--favourite {
+      position: relative;
+      font-weight: 700;
     }
   }
 
-  &__author-text {
-    margin-right: auto;
+  &__list-icon {
+    position: absolute;
+    top: 3px;
+    left: 6px;
+    fill: $white;
+  }
+
+  &__author {
+    width: 187px;
+    font-weight: 400;
+    white-space: nowrap;
+    font-size: 12px;
+    letter-spacing: -0.5px;
+  }
+
+  &__academy-icon {
+    display: block;
+    margin-top: -17px;
+    margin-left: -5px;
+    margin-bottom: 5px;
+    fill: $white;
   }
 }

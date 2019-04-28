@@ -1,69 +1,60 @@
 .slider {
-  position: relative;
-  width: 620px;
-  margin-right: 20px;
-  color: $white;
+  margin-top: -80px;
 
-  &__content {
-    display: flex;
-    flex-direction: column;
-    min-height: 266px;
-    padding: 23px 24px 22px;
+  &__item {
+    position: relative;
+    padding-top: 391px;
+    padding-bottom: 340px;
+  }
 
-    &--1 {
-      background-image: url('../img/slider-1.jpg');
-      background-repeat: no-repeat;
-      background-color: #705147;
-    }
-
-    &--2 {
-      background-image: url('../img/slider-2.jpg');
-      background-repeat: no-repeat;
-      background-color: #705147;
-    }
+  &__image {
+    position: absolute;
+    z-index: -10;
+    top: 0;
+    left: 51px;
   }
 
   &__title {
-    @include text(36px, 36px);
+    width: 705px;
+    margin: 0 auto;
+    text-align: center;
+    @include text(60, 60);
     font-weight: 700;
-    margin-bottom: 3px;
-    text-transform: uppercase;
+    margin-bottom: 33px;
   }
 
-  &__text {
-    margin-bottom: auto;
-    @include text(18px, 24px);
+  &__button {
+    display: block;
+    margin: 0 auto;
+    width: 280px;
   }
-
-  &__link {
-    width: 195px;
-  }
-
 }
 
 .slick-dots {
   display: flex;
   position: absolute;
-  top: 220px;
-  right: 46%;
+  left: 0;
+  bottom: 363px;
 
   & li {
     position: relative;
-    margin-right: 10px;
-    width: 10px;
-    height: 10px;
-    background-color: $white;
+    margin-right: 8px;
+    width: 21px;
+    height: 21px;
+    background-color: transparent;
     border-radius: 50%;
+    border: 2px solid $white;
+    
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
 
-    &.slick-active::before {
-      content: '';
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: $acient-red;
+    &.slick-active {
+      background-color: $white;
+
+      &:hover {
+        background-color: $white;
+      }
     }
 
     & button {
@@ -83,34 +74,4 @@
       overflow: hidden;
     }
   }
-}
-
-.slick-arrow {
-  position: absolute;
-  z-index: 100;
-  top: 114px;
-  width: 22px;
-  height: 40px;
-
-  font-size: 0;
-  background-color: transparent;
-  border: none;
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  &:focus {
-    outline: none;
-  }
-}
-
-.slick-prev {
-  left: 25px;
-  background-image: url('../img/svg/arrow-left.svg');
-}
-
-.slick-next {
-  right: 20px;
-  background-image: url('../img/svg/arrow-right.svg');
 }

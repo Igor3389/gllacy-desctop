@@ -1,5 +1,5 @@
 .products {
-  width: 700px;
+  margin-bottom: 42px;
 
   &__list {
     display: flex;
@@ -8,16 +8,12 @@
   }
 
   &__item {
-    margin-right: 20px;
-    margin-bottom: 20px;
+    margin-right: 26px;
+    margin-bottom: 38px;
 
-    &:nth-child(3n) {
+    &:nth-child(4n) {
       margin-right: 0;
     }
-  }
-
-  & .product:hover {
-    box-shadow: none;
   }
 
 }

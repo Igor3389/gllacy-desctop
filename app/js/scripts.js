@@ -1,33 +1,36 @@
 $(document).ready(function(){
-    //$('.slider').slick({
-    //    dots: true,
-    //    arrows: true,
-    //    infinite: true,
-    //    speed: 300,
-    //    slidesToShow: 1
-    //});
-    //
-    $('.feedback__button').on('click', function () {
-        $('.feedback__form').toggleClass('feedback__form--visually')
+    var slider = $('.slider__list');
+    slider.slick({
+        dots: true,
+        arrows: false,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1
+    });
+
+    var backgrounds = ['#849d8f', '#8996a6', '#9d8b84'];
+
+    slider.on('afterChange', function(event, slick, currentSlide){
+        $('body').css('background-color', backgrounds[currentSlide]);
     });
 
     //$('.feedback__date-button').data('datepicker');
     //
-    //var popup = new Popup({
-    //    'popup': '.modal__popup',
-    //    'closeModal': '.modal__popup-close',
-    //    'overlay': '.modal__overlay'
-    //});
+    var popup = new Popup({
+        'popup': '.modal__popup',
+        'closeModal': '.modal__popup-close',
+        'overlay': '.modal__overlay'
+    });
     //
     //$('.contacts__map-link').on('click', function (event) {
     //    event.preventDefault();
     //    popup.open($('.modal__map'));
     //});
     //
-    //$('.contacts__link').on('click', function (event) {
-    //    event.preventDefault();
-    //    popup.open($('.modal__write'));
-    //});
+    $('.feedback__button').on('click', function (event) {
+        event.preventDefault();
+        popup.open($('.modal__write'));
+    });
 
     //$('.option').removeClass('product__option--nojs');
     //$('.product').hover(

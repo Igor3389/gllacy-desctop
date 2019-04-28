@@ -1,39 +1,11 @@
 .main {
-  &__header {
+  &__bottom {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 76px;
-    margin-bottom: 23px;
+    margin-bottom: 40px;
+  }
 
-    background-image: url("../img/background/background-header.jpg");
-    background-position: left top;
-    background-repeat: no-repeat;
-
-    &-image-welcome {
-      margin-bottom: 3px;
-    }
-
-    &-image-georgeous {
-      margin-bottom: 44px;
-    }
-
-    &-image-sedona {
-      margin-bottom: 48px;
-    }
-
-    &-image-because {
-      margin-bottom: 132px;
-    }
-
-
-    &-text {
-      width: 500px;
-      text-align: center;
-    }
-
-    &-slogan {
-      font-size: 21px;
-    }
+  &__title {
+    @include text(35, 41);
+    margin-bottom: 29px;
   }
 }

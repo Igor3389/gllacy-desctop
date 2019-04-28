@@ -1,48 +1,40 @@
 .button {
   display: inline-block;
   padding: 0 5px;
-  height: 86px;
+  height: 44px;
 
-  font-family: 'Ptsans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 700;
-  font-size: 21px;
-  line-height: 86px;
+  font-size: 18px;
+  line-height: 44px;
   vertical-align: middle;
   text-align: center;
-  text-transform: uppercase;
   color: $white;
   border: none;
-  background-color: $acient-brown;
+  border-radius: 21px;
+  background: linear-gradient(to bottom, $button-gradient-start, $button-gradient-end);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
 
 
-  &:hover, &:focus {
+  &:hover {
     cursor: pointer;
-    background-color: $acient-brown-hover;
     outline: none;
+    background: linear-gradient(to bottom, $button-hover-gradient-start, $button-hover-gradient-end);
+    box-shadow: 0 2px 0 0 #ac1000;
   }
 
   &:active {
-    background-color: $acient-brown-active;
-    color: rgba(255, 255, 255, 0.5);
+    background: linear-gradient(to bottom, $button-active-gradient-start, $button-active-gradient-end);
+    box-shadow: inset 0 2px 0 0 #952718;
   }
 
-  &--blue {
-    height: 58px;
-    line-height: 58px;
-    background-color: $acient-blue;
-
-    &:hover, &:focus {
-      background-color: $acient-blue-hover;
-    }
-
-    &:active {
-      background-color: $acient-blue-active;
-    }
+  &--shadow {
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
   }
 
-  &--small {
-    height: 27px;
-    font-size: 14px;
-    line-height: 27px;
+  &--large {
+    height: 64px;
+    @include text(32, 58);
+    border-radius: 32px;
   }
 }

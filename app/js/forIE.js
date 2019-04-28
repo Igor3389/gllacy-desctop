@@ -4,45 +4,51 @@ $(document).ready(function(){
     if (is_ie) {
         document.createElement( "picture" );
 
+        $('.field').css('padding-top', '9px');
+        $('.cart__weight').css('width', '130px');
+        $('.cart__price').css('width', '70px');
+
         var sociaIcons = $('.social__icon');
+        sociaIcons.css({'position': 'relative',
+                        'left': '0.5px'});
         var sociaLinks = $('.social__link');
         var isIconDown = false;
         sociaIcons.on('mousedown', function () {
-            $(this).css({'opacity': 0.3});
+            $(this).css({'fill': 'rgba(255, 255, 255, 0.5)'});
             isIconDown = true;
         });
         $('html').on('mousemove', function () {
             isIconDown = false;
         });
         sociaLinks.on('mouseout', function () {
-            $(this).children().css('opacity', 1);
+            $(this).children().css('fill', 'rgba(255, 255, 255, 0.8)');
             isIconDown = false;
         });
         sociaIcons.on('mousemove', function () {
             if(!isIconDown) {
-                $(this).css('opacity', 1);
+                $(this).css('fill', 'rgba(255, 255, 255, 1)');
             }
         });
 
-        var authorLink = $('.main-footer__author-link');
-        var authorIcon = $('.main-footer__author-icon');
-        var isAuthorDown = false;
-        authorLink.on('mousedown', function () {
-            $(this).children().css({fill: '#a9a9a9'});
-            isAuthorDown = true;
-        });
-        $('html').on('mousemove', function () {
-            isAuthorDown = false;
-        });
-        authorLink.on('mouseout', function () {
-            $(this).children().css({fill: '#000000'});
-            isAuthorDown = false;
-        });
-        authorLink.on('mousemove', function () {
-            if(!isAuthorDown) {
-                $(this).children().css({fill: '#81b3d2'});
-            }
-        });
+        //var authorLink = $('.main-footer__author-link');
+        //var authorIcon = $('.main-footer__author-icon');
+        //var isAuthorDown = false;
+        //authorLink.on('mousedown', function () {
+        //    $(this).children().css({fill: '#a9a9a9'});
+        //    isAuthorDown = true;
+        //});
+        //$('html').on('mousemove', function () {
+        //    isAuthorDown = false;
+        //});
+        //authorLink.on('mouseout', function () {
+        //    $(this).children().css({fill: '#000000'});
+        //    isAuthorDown = false;
+        //});
+        //authorLink.on('mousemove', function () {
+        //    if(!isAuthorDown) {
+        //        $(this).children().css({fill: '#81b3d2'});
+        //    }
+        //});
 
         //var IsHomeDown = false;
         //var authorIcon = $('.main-footer__author-icon');
