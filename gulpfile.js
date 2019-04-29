@@ -20,7 +20,8 @@ $.gulp.task('default', $.gulp.series('clean',
     $.gulp.parallel('watch')));
 
 $.gulp.task('build', $.gulp.series('clean:build',
-    $.gulp.parallel('html', 'css', 'scripts:lib', 'js', 'imgMin:build', 'svg:build', 'fonts:build', 'webp:build')));
+                        $.gulp.parallel('html', 'css', 'js', 'imgMin:build', 'svg:build', 'fonts:build'),
+                        $.gulp.series('webp:build')));
 
 
 

@@ -516,6 +516,14 @@ h1, h2, h3, h4, h5, h5, p, fieldset {
     font-size: 14px;
     line-height: 24px;
     color: #999999; }
+  .field:-ms-input-placeholder {
+    font-size: 14px;
+    line-height: 24px;
+    color: #999999; }
+  .field::-ms-input-placeholder {
+    font-size: 14px;
+    line-height: 24px;
+    color: #999999; }
   .field:hover {
     border: 2px solid #c7c6c5; }
   .field:focus {

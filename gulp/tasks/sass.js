@@ -16,7 +16,11 @@ module.exports = function () {
             .pipe($.gp.autoprefixer({
                 browsers: ['> 1%']
             }))
-            .pipe($.gp.csso())
+            .pipe($.gp.csso({
+                restructure: false,
+                sourceMap: true,
+                debug: true
+            }))
             .pipe($.gp.rename({
                 suffix: ".min"
             }))

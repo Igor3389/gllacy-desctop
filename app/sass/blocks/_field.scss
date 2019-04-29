@@ -13,6 +13,16 @@
     color: #999999;
   }
 
+  &:-ms-input-placeholder {
+    @include text(14, 24);
+    color: #999999;
+  }
+
+  &::-ms-input-placeholder {
+    @include text(14, 24);
+    color: #999999;
+  }
+
   &:hover {
     border: 2px solid $input-border-hover-color;
   }

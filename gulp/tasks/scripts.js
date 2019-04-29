@@ -18,7 +18,7 @@ module.exports = function () {
             'dist/js/picturefill.js',
             'dist/js/svgAll.js',
             'dist/js/forIE.js',
-            'dist/js/humansNumber.js',
+            'dist/js/popup.js',
             'dist/js/scripts.js'
         ])
             .pipe($.gp.uglify())
